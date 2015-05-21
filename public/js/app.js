@@ -116,7 +116,7 @@
 
             set_ball(ball_position.x, ball_position.y, false);
 
-            if((ball_position.y > guard_postition.left.y + 20 || ball_position.y <= guard_postition.left.y) && ball_position.x === 26) {
+            if((ball_position.y > guard_postition.left.y + 20 || ball_position.y < guard_postition.left.y) && ball_position.x <= 26) {
               socket.emit('game_over', JSON.stringify({winner: 'Player 2'}));
               game_started = false;
             }
