@@ -3,6 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+var players = 0;
 var root_path = process.cwd();
 
 app.use(express.static(root_path));
@@ -17,7 +18,7 @@ http.listen(3000, function(){
 
 io.on('connection', function(socket) {
   console.log('Client connected');
-  
+
   if(players < 2) {
     players++;
     if(players === 1)
