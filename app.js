@@ -6,7 +6,7 @@ var io = require('socket.io')(http);
 var players = 0;
 var root_path = process.cwd();
 
-app.use(express.static(root_path));
+app.use(express.static(root_path + '/public'));
 
 app.get('/', function(req, res) {
   res.sendFile(root_path + '/index.html');
