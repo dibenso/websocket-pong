@@ -79,12 +79,12 @@
             set_ball(ball_position.x, ball_position.y, true);
 
             if(vertical_direction === 'up') {
-              ball_position.x += 2;
-              ball_position.y -= 2;
+              ball_position.x += 4;
+              ball_position.y -= 4;
             }
             else if(vertical_direction === 'down') {
-              ball_position.x += 2;
-              ball_position.y += 2;
+              ball_position.x += 4;
+              ball_position.y += 4;
             }
 
             set_ball(ball_position.x, ball_position.y, false);
@@ -106,12 +106,12 @@
           if(ball_position.x > 26) {
             set_ball(ball_position.x, ball_position.y, true);
             if(vertical_direction === 'up') {
-              ball_position.x -= 2;
-              ball_position.y -= 2;
+              ball_position.x -= 4;
+              ball_position.y -= 4;
             }
             else if(vertical_direction === 'down') {
-              ball_position.x -= 2;
-              ball_position.y += 2;
+              ball_position.x -= 4;
+              ball_position.y += 4;
             }
 
             set_ball(ball_position.x, ball_position.y, false);
@@ -130,7 +130,7 @@
             right = true;
         }
       }
-    }, 20);
+    }, 50);
 
     $(document).keypress(function(data) {
       var charCode = data.charCode;
@@ -229,6 +229,7 @@
 
     socket.on('game_over', function(data) {
       var winner = JSON.parse(data).winner;
+      game_started = false;
       alert(winner + ' won.');
     })
   });
