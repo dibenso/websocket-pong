@@ -29,7 +29,12 @@ io.on('connection', function(socket) {
       players = 0;
     }
   }
+
   socket.on('move', function(data) {
     socket.broadcast.emit('move', data);
   });
+
+  socket.on('game_over', function(data) {
+    io.emit('game_over', data);
+  })
 });

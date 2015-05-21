@@ -89,6 +89,11 @@
 
             set_ball(ball_position.x, ball_position.y, false);
 
+            if((ball_position.y > guard_postition.right.y + 20 || ball_position.y < guard_postition.right.y) && ball_position.x >= 470) {
+              socket.emit('game_over', JSON.stringify({winner: 'Player 1'}));
+              game_started = false;
+            }
+
             if(ball_position.y <= 0)
               vertical_direction = 'down'
             else if(ball_position.y >= 272)
@@ -111,7 +116,10 @@
 
             set_ball(ball_position.x, ball_position.y, false);
 
-            // if((ball_position.y > guard_postition.left.y + 20 || ball_position.y < guard_postition.left.y) && ball_position.x === 26)
+            if((ball_position.y > guard_postition.left.y + 20 || ball_position.y <= guard_postition.left.y) && ball_position.x === 26) {
+              socket.emit('game_over', JSON.stringify({winner: 'Player 2'}));
+              game_started = false;
+            }
 
             if(ball_position.y <= 0)
               vertical_direction = 'down'
@@ -218,5 +226,10 @@
         set_left_guard(guard_postition.left.y, false);
       }
     });
+
+    socket.on('game_over', function(data) {
+      var winner = JSON.parse(data).winner;
+      alert(winner + ' won.');
+    })
   });
 }).call(this);
