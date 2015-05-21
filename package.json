@@ -1,0 +1,15 @@
+{
+  "name": "pong",
+  "version": "1.0.0",
+  "description": "A 2 player websocket pong game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dillon benson",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.4",
+    "socket.io": "^1.3.5"
+  }
+}

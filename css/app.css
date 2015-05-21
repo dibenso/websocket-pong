@@ -1,0 +1,15 @@
+h1 {
+  text-align: center;
+  font-family: 'Arial';
+}
+
+p {
+  text-align: center;
+  font-family: 'Arial';
+}
+
+.center {
+  margin-left: 30%;
+  margin-right: 35%;
+  width: 70%;
+}
